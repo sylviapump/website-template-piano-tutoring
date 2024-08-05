@@ -332,24 +332,29 @@
             </div>
 
             <div class="row">
+
                 <!-- Column for contact form -->
                 <div class="col-lg-6 col-md-8 col-12">
                     <!-- Contact Form -->
-                    <form class="row mt-5" action="submit_form.php" method="POST" netlify>
+                    <form class="row mt-5" data-netlify="true" name="contact-form">
+                        <!-- Add a hidden input field for Netlify form name -->
+                        <input type="hidden" name="form-name" value="contact-form">
+
                         <!-- First Name Field -->
                         <div class="form-group col-6">
                             <label for="FormControlFirstName">First Name</label>
-                            <input type="text" class="form-control" id="FormControlFirstName" name="first_name">
+                            <input type="text" class="form-control" id="FormControlFirstName" name="first_name"
+                                required>
                         </div>
                         <!-- Last Name Field -->
                         <div class="form-group col-6">
                             <label for="FormControlLastName">Last Name</label>
-                            <input type="text" class="form-control" id="FormControlLastName" name="last_name">
+                            <input type="text" class="form-control" id="FormControlLastName" name="last_name" required>
                         </div>
                         <!-- Email Address Field -->
                         <div class="form-group col-12">
                             <label for="FormControlEmail">Email</label>
-                            <input type="email" class="form-control" id="FormControlEmail" name="email">
+                            <input type="email" class="form-control" id="FormControlEmail" name="email" required>
                         </div>
 
                         <!-- Preferred Day Options -->
@@ -410,6 +415,7 @@
                             <button type="submit" class="btn">Submit</button>
                         </div>
                     </form>
+
                 </div>
             </div>
         </section>
