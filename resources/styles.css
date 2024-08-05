@@ -1,0 +1,237 @@
+/* Color Theme: vib Grey */
+/* Root variables for color scheme */
+:root {
+    --color-accent1: #2E3B40;   /* Dark grey accent color */
+    --color-accent2: #515A5C;   /* Medium grey accent color */
+    --color-accent3: #7E8C8F;   /* Light grey accent color */
+    --color-accent4: #D7DADB;   /* Very light grey accent color */
+    --color-white: #FFF;        /* White color */
+    --color-black: #000;        /* Black color */
+}
+
+/* Body Styles */
+body {
+    opacity: 1; /* Initially set to full opacity */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity changes */
+    font-family: "IBM Plex Mono", "Courier New", monospace; /* Font stack with fallbacks */
+    line-height: 2rem; /* Line height for better readability */
+    background-color: var(--color-accent4); /* Background color using custom variable */
+    color: var(--color-accent1); /* Text color using custom variable */
+}
+
+/* Media query to adjust logo for small and medium screens (phones and tablets) */
+@media (max-width: 992px) {
+    /* Selecting the logo element */
+    #logo {
+        /* Replace the original logo with a version without the name */
+        content: url('images/logo-small.png'); 
+        /* Set dimensions for the smaller screen logo */
+        width: 100px; /* Width of the smaller screen logo */
+        height: 100px; /* Height of the smaller screen logo */
+    }
+}
+
+/* Links */
+a {
+    color:inherit;
+    text-decoration: none;
+}
+
+/* Mouse over links */
+a:hover,
+a:active,
+a:focus {
+    color: var(--color-white) !important;
+}
+
+/* Links and buttons using TAB key */
+a:focus-visible,
+.btn:focus-visible {    
+    outline: none !important; /* Remove Bootstrap default */
+    box-shadow: 0 0 0 0.125rem var(--color-accent4) !important; /* Apply focus shadow */
+    border-radius: 5px;
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--color-accent1);
+    color: var(--color-accent4);
+    outline: none;
+    border: none;
+}
+
+/* Mouse Over Buttons */
+.btn:hover, 
+.btn:active,
+.btn:focus {
+    background-color: var(--color-accent2);
+    color: var(--color-white);
+    border: none !important; /* Remove Bootstrap default */
+    outline: none !important; /* Remove Bootstrap default */
+    box-shadow: none !important; /* Remove Bootstrap default */
+}
+
+/* HEADER */
+header {
+    background-color: var(--color-accent1) !important; /* Set background color for header */
+}  
+
+/* Navbar Brand and Navbar Links */
+.navbar-brand, 
+.nav-link {
+    color: var(--color-accent4) !important; /* Set text color for navbar brand and links */
+}
+
+/* Remove border, outline, and box shadow from navbar toggler */
+.navbar-toggler {
+    border: none !important; /* Remove border */
+    outline: none !important; /* Remove outline */
+    box-shadow: none !important; /* Remove box shadow */
+}
+
+/* MAIN */
+
+/* Adjust padding-top for sections to accommodate fixed header */
+main section {
+    padding-top: 150px; /* Adjust based on fixed header height */
+}
+
+/* Jumbotron */
+.jumbotron {
+    position: relative; /* Establish relative positioning for absolute child elements */
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-position: center; /* Center the background image */
+    z-index: 1; /* Ensure content appears above the overlay */
+    min-height: 100vh; /* Set minimum height to full viewport height */
+}
+
+/* Jumbotron Overlay */
+.jumbotron::before {
+    content: ""; /* Create a pseudo-element for the overlay */
+    position: absolute; /* Positioning relative to the parent .jumbotron */
+    top: 0; /* Position at the top of the parent */
+    left: 0; /* Position at the left of the parent */
+    width: 100%; /* Cover the entire width of the parent */
+    height: 100%; /* Cover the entire height of the parent */
+    background: rgba(46,59,64,0.6); /* Semi-transparent overlay color (var(--color-accent1)) */
+    z-index: 0; /* Ensure the overlay is behind the content */
+}
+
+
+/* Slogan Section */
+#slogan {
+    position: relative; /* Ensure relative positioning for absolute child elements */
+    background-size: cover; /* Cover the entire container */
+    background-position: center; /* Center the background image */
+    z-index: 1; /* Ensure content appears above the overlay */
+    min-height: 100vh; /* Set minimum height to full viewport height */
+    text-align: center; /* Center align text content */
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    font-family: "Cutive Mono", "Courier New", monospace; /* Specify font family */
+    animation: fadein 10s ease-in forwards; /* Fade in animation over 10 seconds */
+}
+
+/* Fadein Animation */
+@keyframes fadein {
+    from {
+        opacity: 0; /* Start with fully transparent */
+    }
+    to {
+        opacity: 1; /* End with fully opaque */
+    }
+}
+
+/* Slogan Overlay */
+#slogan::before {
+    content: ""; /* Create a pseudo-element for the overlay */
+    position: absolute; /* Positioning relative to the parent */
+    top: 0; /* Align to the top of the parent */
+    left: 0; /* Align to the left of the parent */
+    width: 100%; /* Cover the entire width of the parent */
+    height: 100%; /* Cover the entire height of the parent */
+    background: rgba(215, 218, 219, 0.8); /* Semi-transparent overlay color (var(--color-accent4)) */
+    z-index: 0; /* Ensure the overlay is behind the content */
+}
+
+/* Slogan Content */
+.slogan-content {
+    position: relative; /* Ensure content respects stacking context */
+    z-index: 1; /* Ensure content appears above the overlay */
+}
+
+/* Testimonials Section */
+
+/* Medium and Large screens (tablets, laptops, and desktops) */
+@media only screen and (min-width: 768px) {
+    .carousel-inner {
+        min-height: 50vh; /* Set minimum height to 50% of viewport height */
+    }
+}
+
+/* Small Screens (phones) */
+@media only screen and (max-width: 767.99px) {
+    .carousel-inner {
+        min-height: 75vh; /* Set minimum height to 75% of viewport height */
+    }
+}
+
+/* Contact Form Section */
+
+#contact {
+    color: var(--color-accent1); /* Text color for the contact section */
+}
+
+/* Mouse over links */
+#contact a:hover,
+#contact a:active,
+#contact a:focus {
+    color: var(--color-accent2) !important; /* Change link color on hover, active, and focus */
+}
+
+/* Links and buttons using TAB key */
+#contact a:focus-visible {    
+    box-shadow: 0 0 0 0.125rem var(--color-accent2) !important; /* Apply focus shadow to links */
+}
+
+/* Change background color of checked checkboxes from default */
+.form-check-input[type='checkbox']:checked {
+    background-color: var(--color-accent1); /* Background color for checked checkboxes */
+    border-color: var(--color-accent1); /* Border color for checked checkboxes */
+}
+
+/* Set input background */
+input[type=text],
+input[type=email],
+input[type=checkbox], 
+.form-control {
+    background-color: var(--color-accent4); /* Background color for input fields */
+    color: var(--color-accent1); /* Text color for input fields */
+    border: 1px solid var(--color-accent1); /* Border color for input fields */
+}
+
+/* Input focus styles */
+input[type=text]:focus,
+input[type=email]:focus,
+input[type=checkbox]:focus, 
+.form-control:focus {
+    background-color: var(--color-accent4); /* Background color on focus for input fields */
+    color: var(--color-accent1); /* Text color on focus for input fields */
+    border: 2px solid var(--color-accent1); /* Border on focus for input fields */
+    outline: none !important; /* Remove Bootstrap default outline */
+    box-shadow: none !important; /* Remove Bootstrap default box shadow */
+}
+
+/* FOOTER */
+
+/* Footer background and text color */
+footer {
+    background-color: var(--color-accent1); /* Background color for the footer */
+    color: var(--color-accent4); /* Text color for the footer */
+}
+
+/* Copyright text size */
+#copyright {
+    font-size: 0.75rem; /* Smaller font size for copyright information */
+}
